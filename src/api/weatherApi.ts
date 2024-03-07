@@ -31,7 +31,7 @@ export async function fetchWeatherByCity(cityName: string) {
     console.log("city Weather", response.data)
     return response.data;
   } catch (error) {
-    console.error('날씨 데이터를 가져오는 중 에러 발생:', error);
+    alert('Sorry, the city name you entered is invalid. Please try again.');
     throw error;
   }
 }
