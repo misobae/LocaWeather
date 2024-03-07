@@ -8,6 +8,7 @@ import { WeatherResult } from "./types/WeatherTypes";
 import { weatherDataState } from "./state/atoms/weatherState";
 
 import WeatherSummary from "./components/WeatherSummary";
+import WeatherDetail from "./components/WeatherDetail";
 
 import { Wrap, Loader } from "./styles/App.styled";
 
@@ -38,7 +39,7 @@ function App() {
     <div>
       {weatherData && (
         <Wrap>
-          <WeatherSummary {...weatherData} />
+          <WeatherSummary />
         </Wrap>
       )}
     </div>
