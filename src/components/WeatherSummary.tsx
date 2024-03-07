@@ -4,6 +4,7 @@ import { WeatherResult } from "../types/WeatherTypes";
 import { TimeOptions } from "../types/TimeTypes";
 
 import WeatherImg from "./WeatherImg";
+import SearchBox from "./SearchBox";
 
 import {
   Wrap,
@@ -39,6 +40,7 @@ function WeatherSummary(weatherData: WeatherResult) {
 
   return (
     <Wrap>
+      <SearchBox />
       <WeatherImgWrap>
         <WeatherImg conditionCode={weatherData.weather[0].id} />
       </WeatherImgWrap>
