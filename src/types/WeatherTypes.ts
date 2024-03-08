@@ -1,35 +1,31 @@
 export interface WeatherResult {
-  coord: {
-    lon: number;
-    lat: number;
-  };
-  weather: {
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-  }[];
-  main: {
+  lat: number;
+  lon: number;
+  timezone: string;
+  timezone_offset: number;
+  current: {
     temp: number;
     feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
     humidity: number;
-  };
-  wind: {
-    speed: number;
-    deg: number;
-    gust: number;
-  };
-  dt: number;
-  sys: {
-    id: number;
-    country: string;
+    wind_speed: number;
+    uvi: number;
     sunrise: number;
     sunset: number;
+    weather: {
+      id: number;
+      description: string;
+      icon: string;
+    }[];
   };
-  timezone: number;
-  id: number;
-  name: string;
+  daily: {
+    dt: number;
+    temp: {
+      day: number;
+      max: number;
+      min: number;
+    };
+    weather: {
+      id: number;
+    }[];
+  }[];
 }
