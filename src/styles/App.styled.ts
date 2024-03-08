@@ -10,7 +10,7 @@ export const Wrap = styled.div`
 `;
 
 const loading = keyframes`
-  100% {box-shadow: 0 0 0 30px #000}
+  100% {box-shadow: 0 0 0 30px #0000}
 `;
 export const Loader = styled.div`
   width: 25px;
