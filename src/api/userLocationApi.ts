@@ -1,4 +1,4 @@
-import { Location } from "./weatherApi";
+import { Location } from "../types/LocationTypes";
 
 export async function getUserLocation(): Promise<Location> {
   return new Promise((resolve, reject) => {
