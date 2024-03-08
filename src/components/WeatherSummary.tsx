@@ -1,6 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
-
-import { TimeOptions } from "../types/TimeTypes";
+import { useMemo } from "react";
 
 import WeatherImg from "./WeatherImg";
 import SearchBox from "./SearchBox";
@@ -22,23 +20,9 @@ function WeatherSummary() {
   const weatherData = useRecoilValue(weatherDataState);
 
   const daysOfWeek = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
-  const timeOptions: TimeOptions = useMemo(() => ({
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  }), []);
-
+  
   const today = useMemo(() => new Date(), []);
   const currentDayOfWeek = today.getDay();
-  const [crtTime, setCrtTime] = useState(today.toLocaleTimeString("en-US", timeOptions));
-  
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCrtTime(today.toLocaleTimeString("en-US", timeOptions));
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [timeOptions, today]); 
 
   return (
     <Wrap>
@@ -52,7 +36,7 @@ function WeatherSummary() {
             <strong>{Math.round(weatherData.main.temp)}</strong>
             <span>°</span>
           </CurrentTemp>
-          <CurrentDate>{daysOfWeek[currentDayOfWeek]}, <span>{crtTime}</span></CurrentDate>
+          <CurrentDate>{daysOfWeek[currentDayOfWeek]}</CurrentDate>
           <CurrentCity>{weatherData.name}</CurrentCity>
           <CurrentInfo>
             <CurrentInfoItem>

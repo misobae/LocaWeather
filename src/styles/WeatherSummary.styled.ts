@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrap = styled.div`
   flex-basis: 25%;
   max-width: 340px;
-  padding: 64px 32px;
+  padding: 40px 32px 64px;
   background: #fff;
   border-radius: 24px;
   text-align: center;
@@ -35,11 +35,6 @@ export const CurrentTemp = styled.div`
 export const CurrentDate = styled.div`
   margin-top: 1em;
   font-size: 14px;
-
-  span {
-    color: ${props => props.theme.color.gry};
-    font-weight: 500;
-  }
 `;
 
 export const CurrentCity = styled.div`
