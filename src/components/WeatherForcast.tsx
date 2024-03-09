@@ -1,42 +1,28 @@
-import { useRecoilValue } from "recoil";
-import { weatherDataState } from "../state/atoms/weatherState";
+import { useState } from "react";
 
-import WeatherImg from "./WeatherImg";
+import ForcastList from "./WeatherForcastList";
+import ForcastChart from "./WeatherForcastChart";
 
 import {
-  Wrap,
-  Item,
-  Temp
+  Tab
 } from "../styles/WeatherForcast.styled";
 
-function WeatherForcast() {
-  const weatherData = useRecoilValue(weatherDataState);
-  const weekForcastData = weatherData?.daily;
-  return (
-    <Wrap>
-      {weekForcastData && (
-        weekForcastData.map((day, index) => {
-          const date = new Date(day.dt * 1000);
-          let dayLabel;
-          if (index === 0) {
-            dayLabel = "Today";
-          } else {
-            dayLabel = date.toLocaleDateString('en-US', { weekday: 'long' });
-          }
 
-          return (
-            <Item key={"day" + index}>
-              <p>{dayLabel}</p>
-              <WeatherImg conditionCode={day.weather[0].id} />
-              <Temp>
-                <strong>{Math.round(day.temp.max)}°</strong>
-                <span>{Math.round(day.temp.min)}°</span>
-              </Temp>
-            </Item>
-          );
-        })
-      )}
-    </Wrap>
+function WeatherForcast() {
+  const [crntTab, setCrntTab] = useState(0);
+  const handleSelectTab = (i: number) => {
+    setCrntTab(i)
+  }
+
+  return (
+    <>
+      <Tab>
+        <h3 onClick={() => handleSelectTab(0)}>List</h3>
+        <h3 onClick={() => handleSelectTab(1)}>Chart</h3>
+      </Tab>
+
+      {crntTab === 0 ? <ForcastList /> : <ForcastChart />}
+    </>
   )
 }
 
