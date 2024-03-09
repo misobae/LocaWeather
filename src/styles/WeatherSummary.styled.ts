@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const Wrap = styled.div`
+export const Wrap = styled(motion.div)`
   flex-basis: 25%;
   max-width: 340px;
   padding: 40px 32px 64px;
@@ -54,6 +55,7 @@ export const CurrentInfoItem = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
+  height: 48px;
   font-size: 15px;
   font-weight: 500;
   color: ${props => props.theme.color.gry};

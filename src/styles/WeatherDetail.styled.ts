@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Wrap = styled.div`
+export const Wrap = styled(motion.div)`
   flex: 75% 0 1;
 `;
 

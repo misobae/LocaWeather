@@ -4,8 +4,9 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 48px;
-  background-color: ${props => props.theme.color.ltGry};
+  height: 100vh;
   padding: 4%;
+  background-color: ${props => props.theme.color.ltGry};
   font-size: 16px;
 `;
 

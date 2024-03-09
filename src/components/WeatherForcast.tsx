@@ -4,7 +4,9 @@ import ForcastList from "./WeatherForcastList";
 import ForcastChart from "./WeatherForcastChart";
 
 import {
-  Tab
+  Tab,
+  Title,
+  TitleBar
 } from "../styles/WeatherForcast.styled";
 
 
@@ -17,8 +19,14 @@ function WeatherForcast() {
   return (
     <>
       <Tab>
-        <h3 onClick={() => handleSelectTab(0)}>List</h3>
-        <h3 onClick={() => handleSelectTab(1)}>Chart</h3>
+        <Title onClick={() => handleSelectTab(0)}>
+          List
+          {crntTab === 0 && <TitleBar layoutId="circle" initial={{ width: 0 }} animate={{ width: "100%" }} />}
+        </Title>
+        <Title onClick={() => handleSelectTab(1)}>
+          Chart
+          {crntTab === 1 && <TitleBar layoutId="circle" initial={{ width: 0 }} animate={{ width: "100%" }} />}
+        </Title>
       </Tab>
 
       {crntTab === 0 ? <ForcastList /> : <ForcastChart />}

@@ -41,6 +41,7 @@ function SearchBox() {
     <Form onSubmit={handleSubmit}>
       <SearchBtn type="submit" />
       <Input
+        whileFocus={{ scale: 1.15 }}
         type="text"
         value={cityName}
         onChange={handleCityNameChange}

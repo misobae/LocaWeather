@@ -1,9 +1,10 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Form = styled.form`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
   margin-bottom: 48px;
   padding: 0 6px;
   text-align: left;
@@ -14,9 +15,10 @@ export const SearchBtn = styled.button`
   height: 16px;
   background: url(${process.env.PUBLIC_URL}/images/icon_search.svg) no-repeat center / contain;
   border: 0;
+  cursor: pointer;
 `;
 
-export const Input = styled.input`
+export const Input = styled(motion.input)`
   flex: 100% 1 1;
   padding: 4px;
   border: 0;

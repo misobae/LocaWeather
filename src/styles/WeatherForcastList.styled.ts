@@ -1,9 +1,11 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Wrap = styled.div`
+export const Wrap = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  height: 365px;
   text-align: center;
 `;
 
@@ -11,13 +13,13 @@ export const Item = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 24px;
+  padding: 20px;
   background: #fff;
   border-radius: 20px;
 
   .weather-img {
     display: block;
-    width: 80px;
+    width: 56px;
     margin: 16px auto 24px;
   }
 

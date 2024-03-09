@@ -3,6 +3,8 @@ import { weatherDataState } from "../state/atoms/weatherState";
 
 import ApexCharts from "react-apexcharts";
 
+import { Wrap } from "../styles/WeatherForcastChart.styled";
+
 function ForcastChart() {
   const weatherData = useRecoilValue(weatherDataState);
   const weeklyForcastData = weatherData?.daily;
@@ -18,55 +20,57 @@ function ForcastChart() {
 
 
   return (
-    <ApexCharts
-      type="area"
-      height={200}
-      options={{
-        chart: {
-          background: "transparent",
-          toolbar: { show: false },
-          zoom: {
-            enabled: false
-          }
-        },
-        dataLabels: {
-          formatter: function(value) {
-            return Number(value).toFixed(0) + "°";
-          },
-          offsetX: 1.5,
-          background: {
-            padding: 8 ,
-            borderRadius: 12,
-            borderWidth: 2,
-          },
-        },
-        colors: ["#333"],
-        stroke: {
-          curve: "smooth",
-          width: 4
-        },
-        xaxis: {
-          categories: weeklyDay,
-        },
-        yaxis: {
-          show: false,
-        },
-        grid: {
-          yaxis: {
-            lines: {
-              show: false
+    <Wrap>
+      <ApexCharts
+        type="area"
+        height={250}
+        options={{
+          chart: {
+            background: "transparent",
+            toolbar: { show: false },
+            zoom: {
+              enabled: false
             }
-          }
-        },
-        tooltip: {
-          enabled: false,
-        }    
-      }}
-      series={[{
-        name: "Temperature",
-        data: weeklyTemp ?? [],
-      }]}
-    />
+          },
+          dataLabels: {
+            formatter: function(value) {
+              return Number(value).toFixed(0) + "°";
+            },
+            offsetX: 1.5,
+            background: {
+              padding: 8 ,
+              borderRadius: 12,
+              borderWidth: 2,
+            },
+          },
+          colors: ["#333"],
+          stroke: {
+            curve: "smooth",
+            width: 4
+          },
+          xaxis: {
+            categories: weeklyDay,
+          },
+          yaxis: {
+            show: false,
+          },
+          grid: {
+            yaxis: {
+              lines: {
+                show: false
+              }
+            }
+          },
+          tooltip: {
+            enabled: false,
+          }    
+        }}
+        series={[{
+          name: "Temperature",
+          data: weeklyTemp ?? [],
+        }]}
+      />
+    </Wrap>
   )
 }
 
