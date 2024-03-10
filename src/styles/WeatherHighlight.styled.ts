@@ -1,18 +1,27 @@
 import styled from "styled-components";
+import { device } from "./media";
 
 export const Wrap = styled.div`
   display: flex;
-  padding: 32px 8px;
+  padding: 24px 8px;
   background: #fff;
   border-radius: 20px;
+  @media ${device.tablet} {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  height: 120px;
-  padding: 0 1.25em;
+  height: 110px;
+  padding: 0 20px;
+
+  @media ${device.tablet} {
+    padding: 0;
+  }
 `;
 
 export const Item = styled.div`
@@ -20,6 +29,32 @@ export const Item = styled.div`
 
   &:not(:last-child) > ${Content} {
     border-right: 1px solid #dfdfdf;
+  }
+
+  @media ${device.tablet} {
+    flex: 50% 0 0;
+    padding: 24px;
+
+    &:nth-child(1), &:nth-child(2) {
+      border-bottom: 1px solid #dfdfdf;
+    }
+    &:nth-child(odd) {
+      border-right: 1px solid #dfdfdf;
+    }
+
+    &:not(:last-child) > ${Content} {
+      border-right: 0;
+    }
+  }
+
+  @media ${device.mobile} {
+    flex: 100% 0 0;
+    padding: 24px 0;
+
+    &:nth-child(odd) {
+      border-right: 0;
+      border-bottom: 1px solid #dfdfdf;
+    }
   }
 `;
 
@@ -133,4 +168,8 @@ export const Title = styled.h3`
   font-size: 13px;
   font-weight: 800;
   color: ${props => props.theme.color.gry};
+
+  @media ${device.tablet} {
+    padding: 0;
+  }
 `;

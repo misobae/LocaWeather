@@ -1,22 +1,35 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { device } from "./media";
 
 export const Wrap = styled(motion.div)`
-  flex-basis: 25%;
-  max-width: 340px;
+  flex-basis: 20%;
   padding: 40px 32px 64px;
   background: #fff;
   border-radius: 24px;
   text-align: center;
+
+  @media ${device.laptop} {
+    padding: 40px 32px;
+  }
 `;
 
 export const WeatherImgWrap = styled.div`
-  width: 160px;
+  width: 80%;
+  max-width: 160px;
   margin: 0 auto;
 
   img {
     display: block;
     width: 100%;
+  }
+
+  @media ${device.laptop} {
+    width: 120px;
+  }
+
+  @media ${device.mobile} {
+    width: 100px;
   }
 `;
 
@@ -45,10 +58,14 @@ export const CurrentCity = styled.div`
 `;
 
 export const CurrentInfo = styled.div`
-  margin-top: 3.5em;
-  padding-top: 2em;
+  margin-top: 48px;
+  padding-top: 30px;
   border-top: 1px solid #ddd;
   text-align: left;
+  @media ${device.laptop} {
+    margin-top: 32px;
+    padding-top: 24px;
+  }
 `;
 
 export const CurrentInfoItem = styled.div`

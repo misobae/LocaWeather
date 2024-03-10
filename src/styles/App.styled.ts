@@ -1,13 +1,26 @@
 import styled, { keyframes } from "styled-components";
+import { device } from "./media";
 
 export const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 48px;
-  height: 100vh;
-  padding: 4%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 72px 4%;
   background-color: ${props => props.theme.color.ltGry};
   font-size: 16px;
+
+  @media ${device.laptop} {
+    gap: 32px;
+  }
+  @media ${device.tablet} {
+    font-size: 15px;
+    flex-direction: column;
+  }
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
 `;
 
 const loading = keyframes`

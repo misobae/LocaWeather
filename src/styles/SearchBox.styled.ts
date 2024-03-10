@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { device } from "./media";
 
 export const Form = styled.form`
   display: flex;
@@ -8,6 +9,10 @@ export const Form = styled.form`
   margin-bottom: 48px;
   padding: 0 6px;
   text-align: left;
+
+  @media ${device.laptop} {
+    margin-bottom: 32px;
+  }
 `;
 
 export const SearchBtn = styled.button`
@@ -25,6 +30,7 @@ export const Input = styled(motion.input)`
   color: ${props => props.theme.color.blk};
   font-family: "Source Sans 3", sans-serif;
   font-size: 13px;
+  transform-origin: left;
   
   &:focus {
     outline: 0;
