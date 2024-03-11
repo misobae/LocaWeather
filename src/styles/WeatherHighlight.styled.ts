@@ -153,6 +153,7 @@ export const ContentCommon = styled.div`
       transform: translateX(-50%);
       background: #000;
       border-radius: 50%;
+      transition: .55s;
     }
   }
 
