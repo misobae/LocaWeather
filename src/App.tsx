@@ -9,6 +9,7 @@ import { Location } from "./types/LocationTypes";
 import { WeatherResult } from "./types/WeatherTypes";
 import { weatherDataState } from "./state/atoms/weatherState";
 
+import Favorite from "./components/Favorite";
 import WeatherSummary from "./components/WeatherSummary";
 import WeatherDetail from "./components/WeatherDetail";
 
@@ -39,6 +40,7 @@ function App() {
   return (
     <div>
       <Wrap>
+        <Favorite />
         <WeatherSummary />
         <WeatherDetail />
       </Wrap>
