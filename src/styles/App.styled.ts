@@ -20,6 +20,8 @@ export const Wrap = styled.div`
   }
   @media ${device.mobile} {
     font-size: 14px;
+    padding: 32px 4%;
+    gap: 16px;
   }
 `;
 
