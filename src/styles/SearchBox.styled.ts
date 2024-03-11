@@ -27,6 +27,7 @@ export const Input = styled(motion.input)`
   flex: 100% 1 1;
   padding: 4px;
   border: 0;
+  background-color: transparent;
   color: ${props => props.theme.color.blk};
   font-family: "Source Sans 3", sans-serif;
   font-size: 13px;
