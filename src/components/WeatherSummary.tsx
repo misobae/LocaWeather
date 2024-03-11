@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { weatherDataState } from "../state/atoms/weatherState";
 
 import { getCityName } from "../api/weatherApi";
@@ -17,10 +17,11 @@ import {
   CurrentInfo,
   CurrentInfoItem
 } from "../styles/WeatherSummary.styled";
+import { cityState } from "../state/atoms/cityState";
 
 function WeatherSummary() {
   const weatherData = useRecoilValue(weatherDataState);
-  const [cityName, setCityName] = useState('');
+  const [cityName, setCityName] = useRecoilState(cityState);
   
   // 도시 이름 가져오기
   useEffect(() => {
@@ -33,7 +34,7 @@ function WeatherSummary() {
           console.error('도시 이름을 가져오는 중 오류가 발생했습니다:', error);
         });
     }
-  }, [weatherData]);
+  }, [weatherData, setCityName]);
 
   const daysOfWeek = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
   
