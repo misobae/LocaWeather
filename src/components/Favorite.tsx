@@ -1,9 +1,11 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
+import { weatherDataState } from "../state/atoms/weatherState";
 import { favoriteState } from "../state/atoms/favoriteState";
 import { cityState } from "../state/atoms/cityState";
 import { dropboxState } from "../state/atoms/dropboxState";
 import { Location } from "../types/LocationTypes";
+import { fetchWeatherByCity, fetchWeatherByLocation } from "../api/weatherApi";
 
 import {
   Wrap,
@@ -15,8 +17,6 @@ import {
   Option,
   NoOption
 } from "../styles/Favorite.styled";
-import { fetchWeatherByCity, fetchWeatherByLocation } from "../api/weatherApi";
-import { weatherDataState } from "../state/atoms/weatherState";
 
 
 function Favorite() {

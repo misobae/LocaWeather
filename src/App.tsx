@@ -28,12 +28,11 @@ function App() {
   });
 
   useEffect(() => {
-    if (dataStatus === 'success' && fetchedWeatherData) {
+    if (fetchedWeatherData) {
       setWeatherData(fetchedWeatherData);
     }
-  }, [dataStatus, fetchedWeatherData, setWeatherData]);
+  }, [fetchedWeatherData, setWeatherData])
 
-  
   if (locationStatus === 'loading' || dataStatus === 'loading') return <Loader />;
   if (locationStatus === 'error' || dataStatus === 'error') return <div>Error fetching weather data</div>;
 
