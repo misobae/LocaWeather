@@ -59,15 +59,19 @@ function WeatherSummary() {
           <CurrentCity>{cityName}</CurrentCity>
           <CurrentInfo>
             <CurrentInfoItem>
-              <img
-                src={`https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}.png`}
-                alt={weatherData.current.weather[0].description}
-              />
-              {weatherData.current.weather[0].description}
+              <div className="img-wrapper">
+                <img
+                  src={`https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}.png`}
+                  alt={weatherData.current.weather[0].description}
+                />
+              </div>
+              <span>{weatherData.current.weather[0].description}</span>
             </CurrentInfoItem>
             <CurrentInfoItem>
-              <img className="icon--feelslike" src={process.env.PUBLIC_URL + '/images/icon_feelslike.svg'} alt="wind chll icon" />
-              Feels like {Math.round(weatherData.current.feels_like)}°
+              <div className="img-wrapper">
+                <img className="icon--feelslike" src={process.env.PUBLIC_URL + '/images/icon_feelslike.svg'} alt="wind chll icon" />
+              </div>
+              <span>Feels like {Math.round(weatherData.current.feels_like)}°</span>
             </CurrentInfoItem>
           </CurrentInfo> 
         </>

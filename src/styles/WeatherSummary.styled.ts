@@ -34,6 +34,7 @@ export const WeatherImgWrap = styled.div`
 `;
 
 export const CurrentTemp = styled.div`
+  height: 72px;
   margin-top: 2em;
 
   strong {
@@ -52,6 +53,7 @@ export const CurrentDate = styled.div`
 `;
 
 export const CurrentCity = styled.div`
+  height: 30px;
   font-size: 1.5em;
   font-weight: 600;
   margin-top: 0.35em;
@@ -72,7 +74,6 @@ export const CurrentInfoItem = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
-  height: 48px;
   font-size: 15px;
   font-weight: 500;
   color: ${props => props.theme.color.gry};
@@ -83,5 +84,14 @@ export const CurrentInfoItem = styled.div`
   .icon--feelslike {
     width: 34px;
     margin: 0 8px;
+  }
+
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
   }
 `;
