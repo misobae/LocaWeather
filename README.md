@@ -6,19 +6,20 @@
 ## 기능 소개
 ### 사용자 위치 기반 날씨 정보 제공
 ![location](https://github.com/misobae/LocaWeather/assets/156400599/4a62546d-4f6b-484d-be15-13f2bd7b3507)
-브라우저의 Geolocation API를 사용해 사용자의 위치에 따른 날씨 정보를 출력했습니다.
+브라우저의 Geolocation API로 사용자의 위치 정보를 수집해, 사용자의 위치에 따른 날씨 정보를 제공합니다.
 
 ### 검색 기능
 ![search](https://github.com/misobae/LocaWeather/assets/156400599/32b846d7-7f1e-46a6-a3e2-c344819fecc0)
-사용자가 검색한 도시를 기반으로 해당 도시의 날씨 데이터를 요청하는 함수를 호출해 검색 기능을 구현했습니다.
+검색어를 기반으로 한 API를 호출해, 사용자가 검색한 도시의 날씨를 확인할 수 있습니다.
 
 ### 즐겨찾기 기능
 ![favorite](https://github.com/misobae/LocaWeather/assets/156400599/4d0d7d10-56bc-407d-ac57-70fc4ba831b4)
-Recoil state를 사용해 즐겨찾는 도시를 추가하고, 다른 도시를 검색해 데이터가 변경되어도 Favorite List에서 다시 확인할 수 있도록 구현했습니다.
+하트 버튼을 클릭하면 현재 사용자가 보고 있는 도시 이름을 state에 담았습니다.
+그 state를 Favorite List에 출력하고, 도시 이름을 클릭하면 검색 기능에 사용했던 검색어(도시 이름)를 기반으로 한 API를 호출하여 즐겨찾기 기능을 사용할 수 있습니다.
 
 ### 데이터 시각화
 ![chart](https://github.com/misobae/LocaWeather/assets/156400599/fc02bbd1-4510-4c83-b925-a2ec8ff9b53c)
-- ApexCharts.js를 사용해 주간 날씨예보를 차트로 표현했습니다.
+- 주간 날씨 데이터의 온도 변화를 Line 차트로 시각화하여 온도 변화 추이를 쉽게 파악할 수 있도록 하였습니다. UV 지수와 습도 데이터를 styled-components에서 props로 전달받아 세미 도넛 차트와 범위 차트로 시각화하여 해당 숫자 데이터를 가시적으로 확인할 수 있도록 하였습니다.
 
 
 
@@ -28,9 +29,9 @@ Recoil state를 사용해 즐겨찾는 도시를 추가하고, 다른 도시를 
 - 상태관리: Recoil, React Query
 - 스타일: styled-components, Framer Motion
 - HTTP 클라이언트: Axios
-- 데이터 시각화: ApexCharts.js
 - 외부 라이브러리: Openweather API
 - 패키지 매니저: npm
+- 빌드: CRA
 
 ## 개발 환경
 node ```v20.11.0```
