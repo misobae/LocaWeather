@@ -15,8 +15,11 @@ export const Wrap = styled(motion.div)`
 `;
 
 export const WeatherImgWrap = styled.div`
-  width: 80%;
-  max-width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 160px;
   margin: 0 auto;
 
   img {
@@ -26,10 +29,12 @@ export const WeatherImgWrap = styled.div`
 
   @media ${device.laptop} {
     width: 120px;
+    height: 120px;
   }
 
   @media ${device.mobile} {
     width: 100px;
+    height: 100px;
   }
 `;
 
