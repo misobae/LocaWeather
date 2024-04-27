@@ -37,13 +37,11 @@ function App() {
   if (locationStatus === 'error' || dataStatus === 'error') return <div>Error fetching weather data</div>;
 
   return (
-    <div>
-      <Wrap>
-        <Favorite />
-        <WeatherSummary />
-        <WeatherDetail />
-      </Wrap>
-    </div>
+    <Wrap>
+      <Favorite />
+      <WeatherSummary />
+      <WeatherDetail />
+    </Wrap>
   );
 }
 
