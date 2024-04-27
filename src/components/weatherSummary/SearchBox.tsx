@@ -1,22 +1,19 @@
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 
-import { Location } from "../types/LocationTypes";
-import { fetchWeatherByCity, fetchWeatherByLocation } from "../api/weatherApi";
-import { weatherDataState } from "../state/atoms/weatherState";
-import { dropboxState } from "../state/atoms/dropboxState";
+import { Location } from "../../types/LocationTypes";
+import { fetchWeatherByCity, fetchWeatherByLocation } from "../../api/weatherApi";
+import { weatherDataState } from "../../state/atoms/weatherState";
 
 import {
   Form,
   SearchBtn,
   Input
-} from "../styles/SearchBox.styled";
-
+} from "../../styles/SearchBox.styled";
 
 function SearchBox() {
   const [cityName, setCityName] = useState("");
   const setWeatherData = useSetRecoilState(weatherDataState);
-  const setDropboxOpen = useSetRecoilState(dropboxState);
 
   // 도시 이름 입력값이 변경될 때마다 호출되는 함수
   const handleCityNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,10 +27,9 @@ function SearchBox() {
       const location: Location = {
         lat: cityData.coord.lat,
         lon: cityData.coord.lon
-      }
+      };
       const searchedWeatherData = await fetchWeatherByLocation(location);
       setWeatherData(searchedWeatherData);
-      setDropboxOpen(false);
       setCityName("");
     } catch (error) {
       console.error("Error fetching weather data by city:", error);
