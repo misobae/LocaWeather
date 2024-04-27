@@ -1,6 +1,6 @@
 import { Location } from "../types/LocationTypes";
 
-export async function getUserLocation(): Promise<Location> {
+export function getUserLocation(): Promise<Location> {
   return new Promise((resolve, reject) => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -19,4 +19,4 @@ export async function getUserLocation(): Promise<Location> {
       reject(new Error("이 브라우저는 Geolocation을 지원하지 않습니다."));
     }
   });
-}
+};
