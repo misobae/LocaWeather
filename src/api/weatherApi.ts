@@ -1,9 +1,8 @@
 import axios from "axios";
 import { Location } from "../types/LocationTypes";
 
-const BASE_URL = `https://api.openweathermap.org/data/2.5`;
+const BASE_URL = `https://api.openweathermap.org`;
 const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
-
 
 // 사용자 위치 정보로 오늘 날씨 가져오기
 export async function fetchWeatherByLocation(location: Location | undefined) {
@@ -11,7 +10,7 @@ export async function fetchWeatherByLocation(location: Location | undefined) {
     const { lat, lon } = location;
 
     try {
-      const response = await axios.get(`${BASE_URL}/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${API_KEY}`);
+      const response = await axios.get(`${BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${API_KEY}`);
 
       return response.data;
     } catch (error) {
@@ -27,7 +26,7 @@ export async function fetchWeatherByLocation(location: Location | undefined) {
 // 도시 이름 구하기
 export async function getCityName(lat: number | undefined, lon: number | undefined) {
   try {
-    const response = await axios.get(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`);
+    const response = await axios.get(`${BASE_URL}/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`);
     const cityName = response.data[0]?.name ?? "Unknown";
 
     return cityName;
@@ -35,12 +34,12 @@ export async function getCityName(lat: number | undefined, lon: number | undefin
     console.error('도시 이름을 가져올 수 없습니다:', error);
     throw error;
   }
-}
+};
 
 // 검색된 도시 이름으로 오늘 날씨 가져오기
 export async function fetchWeatherByCity(cityName: string) {
   try {
-    const response = await axios.get(`${BASE_URL}/weather?q=${cityName}&exclude=minutely,hourly&units=metric&appid=${API_KEY}`);
+    const response = await axios.get(`${BASE_URL}/data/2.5/weather?q=${cityName}&exclude=minutely,hourly&units=metric&appid=${API_KEY}`);
     
     return response.data;
   } catch (error) {
