@@ -1,9 +1,9 @@
 import { useRecoilValue } from "recoil";
-import { weatherDataState } from "../state/atoms/weatherState";
-
 import ApexCharts from "react-apexcharts";
 
-import { Wrap } from "../styles/WeatherForcastChart.styled";
+import { weatherDataState } from "../../state/atoms/weatherState";
+
+import { Wrap } from "../../styles/WeatherForcastChart.styled";
 
 function ForcastChart() {
   const weatherData = useRecoilValue(weatherDataState);

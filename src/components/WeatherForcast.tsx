@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import ForcastList from "./WeatherForcastList";
-import ForcastChart from "./WeatherForcastChart";
+import ForcastList from "./weatherForcast/WeatherForcastList";
+import ForcastChart from "./weatherForcast/WeatherForcastChart";
 
 import {
   Tab,
@@ -14,7 +14,7 @@ function WeatherForcast() {
   const [crntTab, setCrntTab] = useState(0);
   const handleSelectTab = (i: number) => {
     setCrntTab(i)
-  }
+  };
 
   return (
     <>

@@ -1,14 +1,14 @@
 import { useRecoilValue } from "recoil";
-import { weatherDataState } from "../state/atoms/weatherState";
+import { weatherDataState } from "../../state/atoms/weatherState";
 
-import WeatherImg from "./WeatherImg";
+import WeatherImg from "../common/WeatherImg";
 
+import { AnimatePresence } from "framer-motion";
 import {
   Wrap,
   Item,
   Temp,
-} from "../styles/WeatherForcastList.styled";
-import { AnimatePresence } from "framer-motion";
+} from "../../styles/WeatherForcastList.styled";
 
 function ForcastList() {
   const weatherData = useRecoilValue(weatherDataState);
