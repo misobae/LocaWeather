@@ -98,5 +98,9 @@ export const CurrentInfoItem = styled.div`
     width: 50px;
     height: 50px;
     flex-shrink: 0;
+
+    svg {
+      width: 70%;
+    }
   }
 `;

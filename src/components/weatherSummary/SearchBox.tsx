@@ -5,6 +5,7 @@ import { Location } from "../../types/LocationTypes";
 import { fetchWeatherByCity, fetchWeatherByLocation } from "../../api/weatherApi";
 import { weatherDataState } from "../../state/atoms/weatherState";
 
+import { ReactComponent as IconSearch } from '../../assets/images/icon_search.svg';
 import {
   Form,
   SearchBtn,
@@ -38,7 +39,9 @@ function SearchBox() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <SearchBtn type="submit" />
+      <SearchBtn type="submit">
+        <IconSearch />
+      </SearchBtn>
       <Input
         whileFocus={{ scale: 1.15 }}
         type="text"

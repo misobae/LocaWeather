@@ -1,6 +1,9 @@
 import { useRecoilValue } from "recoil";
 import { weatherDataState } from "../state/atoms/weatherState";
 
+import IconSunrise from '../assets/images/icon_sunrise.png'; 
+import IconSunset from '../assets/images/icon_sunset.png'; 
+import IconWind from '../assets/images/icon_wind.png'; 
 import { 
   Wrap,
   ContentChart,
@@ -57,14 +60,13 @@ function WeatherHighlight() {
               <span>{weatherData.current.uvi}</span>
             </ContentChart>
           </ContentBox>
-
           <ContentBox title="SUNRISE & SUNSET">
             <ContentSun>
-              <img className="icon" src={process.env.PUBLIC_URL + '/images/icon_sunrise.png'} alt="Sunrise" />
+              <img className="icon" src={IconSunrise} alt="Sunrise" />
               <p>{localSunriseString}</p>
             </ContentSun>
             <ContentSun>
-              <img className="icon" src={process.env.PUBLIC_URL + '/images/icon_sunset.png'} alt="Sunset" />
+              <img className="icon" src={IconSunset} alt="Sunset" />
               <p>{localSunsetString}</p>
             </ContentSun>
           </ContentBox>
@@ -83,7 +85,7 @@ function WeatherHighlight() {
               <p>{weatherData.current.wind_speed} <span>m/s</span></p>
               <img
                 className="icon--wind"
-                src={process.env.PUBLIC_URL + '/images/icon_wind.png'}
+                src={IconWind}
                 alt="바람"
               />
             </ContentCommon>

@@ -4,6 +4,7 @@ import { weatherDataState } from "../../state/atoms/weatherState";
 import { cityState } from "../../state/atoms/cityState";
 
 import WeatherImg from "../common/WeatherImg";
+import { ReactComponent as IconFeelsLike } from '../../assets/images/icon_feelslike.svg';
 
 import {
   WeatherImgWrap,
@@ -60,7 +61,7 @@ function CurrentWeather() {
           </CurrentInfoItem>
           <CurrentInfoItem>
             <div className="img-wrapper">
-              <img className="icon--feelslike" src={process.env.PUBLIC_URL + '/images/icon_feelslike.svg'} alt="wind chll icon" />
+              <IconFeelsLike />
             </div>
             <span>Feels like {Math.round(weatherData.current.feels_like)}°</span>
           </CurrentInfoItem>

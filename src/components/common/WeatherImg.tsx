@@ -1,3 +1,12 @@
+import thunderstormIcon from 'assets/images/thunderstorm.svg';
+import rainIcon from 'assets/images/rain.svg';
+import snowIcon from 'assets/images/snow.svg';
+import atmosphereIcon from 'assets/images/atmosphere.svg';
+import clearIcon from 'assets/images/clear.svg';
+import fewcloudIcon from 'assets/images/fewcloud.svg';
+import cloudIcon from 'assets/images/cloud.svg';
+import defaultIcon from 'assets/images/default.svg';
+
 function WeatherImg({ conditionCode }: { conditionCode: number }) {
 
   const getCategoryByCode = (code: number) => {
@@ -10,34 +19,34 @@ function WeatherImg({ conditionCode }: { conditionCode: number }) {
     if (code >= 802 && code <= 804) return 'cloud'; // 흐림
     return 'default';
   };
-
+  
   const getIconPath = (category: string) => {
     switch (category) {
       case 'thunderstorm':
-        return "/images/thunderstorm.svg";
+        return thunderstormIcon;
       case 'drizzle':
-        return "/images/drizzle.svg";
+        return atmosphereIcon;
       case 'rain':
-        return "/images/rain.svg";
+        return rainIcon;
       case 'snow':
-        return "/images/snow.svg";
+        return snowIcon;
       case 'atmosphere':
-        return "/images/atmosphere.svg";
+        return atmosphereIcon;
       case 'clear':
-        return "/images/clear.svg";
+        return clearIcon;
       case 'fewcloud':
-        return "/images/fewcloud.svg";
+        return fewcloudIcon;
       case 'cloud':
-        return "/images/cloud.svg";
+        return cloudIcon;
       default:
-        return "/images/default.svg";
+        return defaultIcon;
     }
   };
 
   const category = getCategoryByCode(conditionCode);
   const iconPath = getIconPath(category);
 
-  return <img className="weather-img" src={process.env.PUBLIC_URL + iconPath} alt={category} />;
+  return <img className="weather-img" src={iconPath} alt={category} />;
 };
 
 export default WeatherImg;

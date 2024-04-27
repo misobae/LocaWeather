@@ -18,8 +18,8 @@ export const Form = styled.form`
 export const SearchBtn = styled.button`
   width: 16px;
   height: 16px;
-  background: url(${process.env.PUBLIC_URL}/images/icon_search.svg) no-repeat center / contain;
   border: 0;
+  background-color: transparent;
   cursor: pointer;
 `;
 
