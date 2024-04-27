@@ -3,14 +3,12 @@ import { weatherDataState } from "../state/atoms/weatherState";
 
 import { 
   Wrap,
-  Item,
-  Title,
-  Content,
   ContentChart,
   Chart,
   ContentSun,
   ContentCommon
 } from "../styles/WeatherHighlight.styled";
+import ContentBox from "./weatherHighlight/ContentBox";
 
 
 function WeatherHighlight() {
@@ -53,52 +51,43 @@ function WeatherHighlight() {
     <Wrap>
       {weatherData && (
         <>
-          <Item>
-            <Title>UV INDEX</Title>
-            <Content>
-              <ContentChart>
-                <Chart style={{ transform: `rotate(${(weatherData.current.uvi / 15) * 180}deg)`}}></Chart>
-                <span>{weatherData.current.uvi}</span>
-              </ContentChart>
-            </Content>
-          </Item>
-          <Item>
-            <Title>SUNRISE & SUNSET</Title>
-            <Content>
-              <ContentSun>
-                <img className="icon" src={process.env.PUBLIC_URL + '/images/icon_sunrise.png'} alt="Sunrise" />
-                <p>{localSunriseString}</p>
-              </ContentSun>
-              <ContentSun>
-                <img className="icon" src={process.env.PUBLIC_URL + '/images/icon_sunset.png'} alt="Sunset" />
-                <p>{localSunsetString}</p>
-              </ContentSun>
-            </Content>
-          </Item>
-          <Item>
-            <Title>HUMIDITY</Title>
-            <Content>
-              <ContentCommon>
-                <p>{weatherData.current.humidity}<span>%</span></p>
-                <div className="range">
-                  <span style={{ bottom: `${(weatherData.current.humidity * 0.76) + 4}px`}}></span>
-                </div>
-              </ContentCommon>
-            </Content>
-          </Item>
-          <Item>
-            <Title>WIND STATUS</Title>
-            <Content>
-              <ContentCommon>
-                <p>{weatherData.current.wind_speed} <span>m/s</span></p>
-                <img
-                  className="icon--wind"
-                  src={process.env.PUBLIC_URL + '/images/icon_wind.png'}
-                  alt="바람"
-                />
-              </ContentCommon>
-            </Content>
-          </Item>
+          <ContentBox title="UV INDEX">
+            <ContentChart>
+              <Chart style={{ transform: `rotate(${(weatherData.current.uvi / 15) * 180}deg)`}}></Chart>
+              <span>{weatherData.current.uvi}</span>
+            </ContentChart>
+          </ContentBox>
+
+          <ContentBox title="SUNRISE & SUNSET">
+            <ContentSun>
+              <img className="icon" src={process.env.PUBLIC_URL + '/images/icon_sunrise.png'} alt="Sunrise" />
+              <p>{localSunriseString}</p>
+            </ContentSun>
+            <ContentSun>
+              <img className="icon" src={process.env.PUBLIC_URL + '/images/icon_sunset.png'} alt="Sunset" />
+              <p>{localSunsetString}</p>
+            </ContentSun>
+          </ContentBox>
+
+          <ContentBox title="HUMIDITY">
+            <ContentCommon>
+              <p>{weatherData.current.humidity}<span>%</span></p>
+              <div className="range">
+                <span style={{ bottom: `${(weatherData.current.humidity * 0.76) + 4}px`}}></span>
+              </div>
+            </ContentCommon>
+          </ContentBox>
+
+          <ContentBox title="WIND STATUS">
+            <ContentCommon>
+              <p>{weatherData.current.wind_speed} <span>m/s</span></p>
+              <img
+                className="icon--wind"
+                src={process.env.PUBLIC_URL + '/images/icon_wind.png'}
+                alt="바람"
+              />
+            </ContentCommon>
+          </ContentBox>
         </>
       )}
     </Wrap>
