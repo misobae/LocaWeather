@@ -31,7 +31,7 @@ function App() {
     if (fetchedWeatherData) {
       setWeatherData(fetchedWeatherData);
     }
-  }, [fetchedWeatherData, setWeatherData])
+  }, [fetchedWeatherData]);
 
   if (locationStatus === 'loading' || dataStatus === 'loading') return <Loader />;
   if (locationStatus === 'error' || dataStatus === 'error') return <div>Error fetching weather data</div>;

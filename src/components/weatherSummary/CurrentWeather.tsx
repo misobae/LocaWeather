@@ -14,6 +14,7 @@ import {
   CurrentInfo,
   CurrentInfoItem
 } from "../../styles/WeatherSummary.styled";
+import { useEffect } from "react";
 
 
 function CurrentWeather() {
@@ -21,15 +22,18 @@ function CurrentWeather() {
   const [cityName, setCityName] = useRecoilState(cityState);
   
   // 도시 이름 가져오기
-  if (weatherData) {
-    getCityName(weatherData.lat, weatherData.lon)
-    .then(cityName => {
-      setCityName(cityName);
-    })
-    .catch(error => {
-      console.error('도시 이름을 가져오는 중 오류가 발생했습니다:', error);
-    });
-  }
+  useEffect(() => {
+    if (weatherData) {
+      getCityName(weatherData.lat, weatherData.lon)
+        .then(cityName => {
+          setCityName(cityName);
+        })
+        .catch(error => {
+          console.error('도시 이름을 가져오는 중 오류가 발생했습니다:', error);
+        });
+    }
+  }, [weatherData, setCityName]);
+
 
   const daysOfWeek = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
   
