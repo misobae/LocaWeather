@@ -72,7 +72,7 @@ export const ContentChart = styled.div`
     width: inherit;
     height: inherit;
     box-sizing: border-box;
-    border: 20px solid rgba(211, 211, 211, .3);
+    border: 20px solid #ddd;
     border-bottom: none;
     border-top-left-radius: 80px;
     border-top-right-radius: 80px;
@@ -86,15 +86,35 @@ export const ContentChart = styled.div`
   }
   span {
     position: absolute;
-    bottom: 0;
+    z-index: 5;
+    bottom: 1px;
     left: 50%;
+    width: 100%;
     transform: translateX(-50%);
     font-size: 2em;
+    text-align: center;
+
+    &::before {
+      content: '0';
+      position: absolute;
+      left: 8px;
+      bottom: 1px;
+      color: #fff;
+      font-size: 12px;
+    }
+    &::after {
+      content: '11';
+      position: absolute;
+      right: 5px;
+      bottom: 0;
+      color: #fff;
+      font-size: 12px;
+    }
   }
 `;
 
-export const Chart = styled.div`
-  transform: rotate(0deg);
+export const Chart = styled.div<{ uvi: number }>`
+  transform: rotate(${(props) => (props.uvi / 11) * 180}deg);
   transition: .55s;
   z-index: 4;
   position: absolute;
@@ -144,22 +164,23 @@ export const ContentCommon = styled.div`
     height: 100px;
     border: 1px solid #ddd;
     border-radius: 24px;
-    
-    span {
-      position: absolute;
-      left: 50%;
-      width: 16px;
-      height: 16px;
-      transform: translateX(-50%);
-      background: #000;
-      border-radius: 50%;
-      transition: .55s;
-    }
   }
 
   .icon--wind {
     width: 40px;
   }
+`;
+
+export const RangeCircle = styled.span<{ humidity: number }>`
+  position: absolute;
+  left: 50%;
+  bottom: calc(4px + ${(props) => (props.humidity / 100) * 74}px);
+  width: 16px;
+  height: 16px;
+  transform: translateX(-50%);
+  background: #000;
+  border-radius: 50%;
+  transition: .55s;
 `;
 
 export const Title = styled.h3`

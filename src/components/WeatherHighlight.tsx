@@ -9,7 +9,8 @@ import {
   ContentChart,
   Chart,
   ContentSun,
-  ContentCommon
+  ContentCommon,
+  RangeCircle
 } from "../styles/WeatherHighlight.styled";
 import ContentBox from "./weatherHighlight/ContentBox";
 
@@ -56,7 +57,7 @@ function WeatherHighlight() {
         <>
           <ContentBox title="UV INDEX">
             <ContentChart>
-              <Chart style={{ transform: `rotate(${(weatherData.current.uvi / 15) * 180}deg)`}}></Chart>
+              <Chart uvi={weatherData.current.uvi} />
               <span>{weatherData.current.uvi}</span>
             </ContentChart>
           </ContentBox>
@@ -75,7 +76,7 @@ function WeatherHighlight() {
             <ContentCommon>
               <p>{weatherData.current.humidity}<span>%</span></p>
               <div className="range">
-                <span style={{ bottom: `${(weatherData.current.humidity * 0.76) + 4}px`}}></span>
+                <RangeCircle humidity={weatherData.current.humidity} />
               </div>
             </ContentCommon>
           </ContentBox>
