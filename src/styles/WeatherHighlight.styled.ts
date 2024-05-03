@@ -113,8 +113,8 @@ export const ContentChart = styled.div`
   }
 `;
 
-export const Chart = styled.div<{ uvi: number }>`
-  transform: rotate(${(props) => (props.uvi / 11) * 180}deg);
+export const Chart = styled.div<{ $uvi: number }>`
+  transform: rotate(${(props) => (props.$uvi / 11) * 180}deg);
   transition: .55s;
   z-index: 4;
   position: absolute;
@@ -171,10 +171,10 @@ export const ContentCommon = styled.div`
   }
 `;
 
-export const RangeCircle = styled.span<{ humidity: number }>`
+export const RangeCircle = styled.span<{ $humidity: number }>`
   position: absolute;
   left: 50%;
-  bottom: calc(4px + ${(props) => (props.humidity / 100) * 74}px);
+  bottom: calc(4px + ${(props) => (props.$humidity / 100) * 74}px);
   width: 16px;
   height: 16px;
   transform: translateX(-50%);

@@ -57,7 +57,7 @@ function WeatherHighlight() {
         <>
           <ContentBox title="UV INDEX">
             <ContentChart>
-              <Chart uvi={weatherData.current.uvi} />
+              <Chart $uvi={weatherData.current.uvi} />
               <span>{weatherData.current.uvi}</span>
             </ContentChart>
           </ContentBox>
@@ -76,7 +76,7 @@ function WeatherHighlight() {
             <ContentCommon>
               <p>{weatherData.current.humidity}<span>%</span></p>
               <div className="range">
-                <RangeCircle humidity={weatherData.current.humidity} />
+                <RangeCircle $humidity={weatherData.current.humidity} />
               </div>
             </ContentCommon>
           </ContentBox>
