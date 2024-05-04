@@ -8,8 +8,13 @@ import {
   Wrap,
   ContentChart,
   Chart,
+  ChartData,
   ContentSun,
+  SunImgWrap,
+  SunTime,
   ContentCommon,
+  CommonNumber,
+  Range,
   RangeCircle
 } from "../styles/WeatherHighlight.styled";
 import ContentBox from "./weatherHighlight/ContentBox";
@@ -58,32 +63,40 @@ function WeatherHighlight() {
           <ContentBox title="UV INDEX">
             <ContentChart>
               <Chart $uvi={weatherData.current.uvi} />
-              <span>{weatherData.current.uvi}</span>
+              <ChartData>{weatherData.current.uvi}</ChartData>
             </ContentChart>
           </ContentBox>
           <ContentBox title="SUNRISE & SUNSET">
             <ContentSun>
-              <img className="icon" src={IconSunrise} alt="Sunrise" />
-              <p>{localSunriseString}</p>
+              <SunImgWrap>
+                <img src={IconSunrise} alt="Sunrise" />
+              </SunImgWrap>
+              <SunTime>{localSunriseString}</SunTime>
             </ContentSun>
             <ContentSun>
-              <img className="icon" src={IconSunset} alt="Sunset" />
-              <p>{localSunsetString}</p>
+              <SunImgWrap>
+                <img src={IconSunset} alt="Sunset" />
+              </SunImgWrap>
+              <SunTime>{localSunsetString}</SunTime>
             </ContentSun>
           </ContentBox>
 
           <ContentBox title="HUMIDITY">
             <ContentCommon>
-              <p>{weatherData.current.humidity}<span>%</span></p>
-              <div className="range">
+              <CommonNumber>
+                {weatherData.current.humidity}<span>%</span>
+              </CommonNumber>
+              <Range>
                 <RangeCircle $humidity={weatherData.current.humidity} />
-              </div>
+              </Range>
             </ContentCommon>
           </ContentBox>
 
           <ContentBox title="WIND STATUS">
             <ContentCommon>
-              <p>{weatherData.current.wind_speed} <span>m/s</span></p>
+              <CommonNumber>
+                {weatherData.current.wind_speed} <span>m/s</span>
+              </CommonNumber>
               <img
                 className="icon--wind"
                 src={IconWind}

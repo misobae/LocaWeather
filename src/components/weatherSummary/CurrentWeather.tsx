@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { getCityName } from "../../api/weatherApi";
 import { weatherDataState } from "../../state/atoms/weatherState";
@@ -8,13 +9,16 @@ import { ReactComponent as IconFeelsLike } from '../../assets/images/icon_feelsl
 
 import {
   WeatherImgWrap,
-  CurrentTemp,
-  CurrentDate,
-  CurrentCity,
-  CurrentInfo,
-  CurrentInfoItem
+  Temp,
+  TempValue,
+  TempDegree,
+  Weekday,
+  City,
+  Info,
+  InfoItem,
+  InfoImg,
+  InfoTxt
 } from "../../styles/WeatherSummary.styled";
-import { useEffect } from "react";
 
 
 function CurrentWeather() {
@@ -47,29 +51,30 @@ function CurrentWeather() {
         <WeatherImgWrap>
           <WeatherImg conditionCode={weatherData.current.weather[0].id} />
         </WeatherImgWrap>
-        <CurrentTemp>
-          <strong>{Math.round(weatherData.current.temp)}</strong>
-          <span>°</span>
-        </CurrentTemp>
-        <CurrentDate>{daysOfWeek[currentDayOfWeek]}</CurrentDate>
-        <CurrentCity>{cityName}</CurrentCity>
-        <CurrentInfo>
-          <CurrentInfoItem>
-            <div className="img-wrapper">
+        <Temp>
+          <TempValue>{Math.round(weatherData.current.temp)}</TempValue>
+          <TempDegree>°</TempDegree>
+        </Temp>
+        <Weekday>{daysOfWeek[currentDayOfWeek]}</Weekday>
+        <City>{cityName}</City>
+
+        <Info>
+          <InfoItem>
+            <InfoImg>
               <img
                 src={`https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}.png`}
                 alt={weatherData.current.weather[0].description}
               />
-            </div>
-            <span>{weatherData.current.weather[0].description}</span>
-          </CurrentInfoItem>
-          <CurrentInfoItem>
-            <div className="img-wrapper">
+            </InfoImg>
+            <InfoTxt>{weatherData.current.weather[0].description}</InfoTxt>
+          </InfoItem>
+          <InfoItem>
+            <InfoImg>
               <IconFeelsLike />
-            </div>
-            <span>Feels like {Math.round(weatherData.current.feels_like)}°</span>
-          </CurrentInfoItem>
-        </CurrentInfo> 
+            </InfoImg>
+            <InfoTxt>Feels like {Math.round(weatherData.current.feels_like)}°</InfoTxt>
+          </InfoItem>
+        </Info> 
       </>
     )}
   </>

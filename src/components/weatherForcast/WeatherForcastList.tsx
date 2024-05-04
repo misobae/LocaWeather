@@ -7,7 +7,10 @@ import { AnimatePresence } from "framer-motion";
 import {
   Wrap,
   Item,
-  Temp,
+  Weekday,
+  TempWrap,
+  TempMax,
+  TempMin
 } from "../../styles/WeatherForcastList.styled";
 
 function ForcastList() {
@@ -34,12 +37,12 @@ function ForcastList() {
 
             return (
               <Item key={"day" + index}>
-                <p>{dayLabel}</p>
+                <Weekday>{dayLabel}</Weekday>
                 <WeatherImg conditionCode={day.weather[0].id} />
-                <Temp>
-                  <strong>{Math.round(day.temp.max)}°</strong>
-                  <span>{Math.round(day.temp.min)}°</span>
-                </Temp>
+                <TempWrap>
+                  <TempMax>{Math.round(day.temp.max)}°</TempMax>
+                  <TempMin>{Math.round(day.temp.min)}°</TempMin>
+                </TempWrap>
               </Item>
             );
           })

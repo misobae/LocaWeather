@@ -38,33 +38,32 @@ export const WeatherImgWrap = styled.div`
   }
 `;
 
-export const CurrentTemp = styled.div`
+export const Temp = styled.div`
   height: 72px;
   margin-top: 2em;
-
-  strong {
-    font-size: 3.75em;
-    font-weight: 600;
-  }
-  span {
-    font-size: 1.75em;
-    vertical-align: top;
-  }
+`;
+export const TempValue = styled.span`
+  font-size: 3.75em;
+  font-weight: 600;
+`;
+export const TempDegree = styled.span`
+  font-size: 1.75em;
+  vertical-align: top;
 `;
 
-export const CurrentDate = styled.div`
+export const Weekday = styled.div`
   margin-top: 1em;
   font-size: 14px;
 `;
 
-export const CurrentCity = styled.div`
+export const City = styled.div`
   height: 30px;
   font-size: 1.5em;
   font-weight: 600;
   margin-top: 0.35em;
 `;
 
-export const CurrentInfo = styled.div`
+export const Info = styled.div`
   margin-top: 48px;
   padding-top: 30px;
   border-top: 1px solid #ddd;
@@ -74,33 +73,28 @@ export const CurrentInfo = styled.div`
     padding-top: 24px;
   }
 `;
-
-export const CurrentInfoItem = styled.div`
+export const InfoItem = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
-  font-size: 15px;
-  font-weight: 500;
-  color: ${props => props.theme.color.gry};
-
   &:not(:last-child) {
     margin-bottom: 1em;
   }
-  .icon--feelslike {
-    width: 34px;
-    margin: 0 8px;
-  }
+`;
+export const InfoImg = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
 
-  .img-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-
-    svg {
-      width: 70%;
-    }
+  svg {
+    width: 60%;
   }
+`;
+export const InfoTxt = styled.span`
+  font-size: 15px;
+  font-weight: 500;
+  color: ${props => props.theme.color.gry};
 `;

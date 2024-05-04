@@ -28,13 +28,6 @@ export const Item = styled.div`
     width: 56px;
     margin: 8px auto 16px;
   }
-
-  p {
-    font-size: 12px;
-    color: #777;
-    font-weight: 600;
-  }
-
   @media ${device.mobile} {
     flex-direction: row;
     align-items: center;
@@ -46,17 +39,25 @@ export const Item = styled.div`
     }
   }
 `;
-
-export const Temp = styled.div`
-  font-size: 1.25em;
+export const Weekday = styled.span`
+  font-size: 12px;
+  color: ${props => props.theme.color.gry};
   font-weight: 600;
+`;
 
-  span {
-    margin-left: 8px;
-    color: #b8b8b8;
-  }
-
+export const TempWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25em;
   @media ${device.mobile} {
-    width: 58px;
+    width: 60px;
   }
+`;
+export const TempMax = styled.span`
+  font-weight: 600;
+`;
+export const TempMin = styled.span`
+  margin-left: 8px;
+  color: ${props => props.theme.color.gry};
 `;

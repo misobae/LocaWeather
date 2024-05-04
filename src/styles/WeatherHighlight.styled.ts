@@ -84,35 +84,7 @@ export const ContentChart = styled.div`
     bottom: 10px;
     transform: translateX(-50%);
   }
-  span {
-    position: absolute;
-    z-index: 5;
-    bottom: 1px;
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50%);
-    font-size: 2em;
-    text-align: center;
-
-    &::before {
-      content: '0';
-      position: absolute;
-      left: 8px;
-      bottom: 1px;
-      color: #fff;
-      font-size: 12px;
-    }
-    &::after {
-      content: '11';
-      position: absolute;
-      right: 5px;
-      bottom: 0;
-      color: #fff;
-      font-size: 12px;
-    }
-  }
 `;
-
 export const Chart = styled.div<{ $uvi: number }>`
   transform: rotate(${(props) => (props.$uvi / 11) * 180}deg);
   transition: .55s;
@@ -130,18 +102,49 @@ export const Chart = styled.div<{ $uvi: number }>`
   transform-style: preserve-3d;
   backface-visibility: hidden;
 `;
+export const ChartData = styled.span`
+  position: absolute;
+  z-index: 5;
+  bottom: 1px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  font-size: 2em;
+  text-align: center;
+
+  &::before {
+    content: '0';
+    position: absolute;
+    left: 8px;
+    bottom: 1px;
+    color: #fff;
+    font-size: 12px;
+  }
+  &::after {
+    content: '11';
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    color: #fff;
+    font-size: 12px;
+  }
+`;
 
 export const ContentSun = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  .icon {
-    width: 40px;
+`;
+export const SunImgWrap = styled.div`
+  width: 40px;
+  img {
+    display: block;
+    width: 100%;
   }
-  p {
-    margin-left: 1em;
-    font-size: 0.95em;
-  }
+`;
+export const SunTime = styled.span`
+  margin-left: 1em;
+  font-size: 0.95em;
 `;
 
 export const ContentCommon = styled.div`
@@ -149,28 +152,25 @@ export const ContentCommon = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-
-  p {
-    font-size: 2.25em;
-    span {
-      font-size: 0.5em;
-      vertical-align: super;
-    }
-  }
-
-  .range {
-    position: relative;
-    width: 24px;
-    height: 100px;
-    border: 1px solid #ddd;
-    border-radius: 24px;
-  }
-
   .icon--wind {
     width: 40px;
   }
 `;
+export const CommonNumber = styled.span`
+  font-size: 2.25em;
+  span {
+    font-size: 0.5em;
+    vertical-align: super;
+  }
+`;
 
+export const Range = styled.div`
+  position: relative;
+  width: 24px;
+  height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+`;
 export const RangeCircle = styled.span<{ $humidity: number }>`
   position: absolute;
   left: 50%;
@@ -188,7 +188,7 @@ export const Title = styled.h3`
   margin-bottom: 1.75em;
   padding: 0 1em;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
   color: ${props => props.theme.color.gry};
 
   @media ${device.tablet} {
