@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/LocaWeather/static/js/main.e89110f5.js",
+    "main.js": "/LocaWeather/static/js/main.f25b5572.js",
     "static/media/snow.svg": "/LocaWeather/static/media/snow.acd89b72db56ac9355cd442bc6f0f143.svg",
     "static/media/default.svg": "/LocaWeather/static/media/default.bd84436438b085ee3534c033fcc9d6c6.svg",
     "static/media/fewcloud.svg": "/LocaWeather/static/media/fewcloud.bd84436438b085ee3534c033fcc9d6c6.svg",
@@ -12,9 +12,9 @@
     "index.html": "/LocaWeather/index.html",
     "static/media/icon_feelslike.svg": "/LocaWeather/static/media/icon_feelslike.65ad01f7f7a3c6fa9166bb298b9c4c7c.svg",
     "static/media/icon_search.svg": "/LocaWeather/static/media/icon_search.2eb9b06ae6bf085778ecccc5767ed7de.svg",
-    "main.e89110f5.js.map": "/LocaWeather/static/js/main.e89110f5.js.map"
+    "main.f25b5572.js.map": "/LocaWeather/static/js/main.f25b5572.js.map"
   },
   "entrypoints": [
-    "static/js/main.e89110f5.js"
+    "static/js/main.f25b5572.js"
   ]
 }
