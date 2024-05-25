@@ -10,7 +10,7 @@ export async function fetchWeatherByLocation(location: Location | undefined) {
     const { lat, lon } = location;
 
     try {
-      const response = await axios.get(`${BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${API_KEY}`);
+      const response = await axios.get(`${BASE_URL}/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${API_KEY}`);
 
       return response.data;
     } catch (error) {
